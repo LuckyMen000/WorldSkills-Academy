@@ -3,6 +3,7 @@ import { Box, Heading, Text, Stack, SimpleGrid, Flex, Button, useColorModeValue,
 import titleimg from '../../Assets/images/coursestart.gif';
 import Header from '../../Components/Header/Header';
 import CourseList from './CourseCard';
+import StudentGrades from './StudentGrades';
 import Footer from '../../Components/Footer/Footer';
 
 const MainPage: React.FC = () => {
@@ -60,7 +61,39 @@ const MainPage: React.FC = () => {
           </Box>
         </Flex>
       </Box>
-      
+      <Box>
+      <Box py={10} bg={useColorModeValue('gray.50', 'gray.800')} textAlign="center">
+  <Heading as="h3" size="xl" mb={6} color={color}>
+    О нас
+  </Heading>
+  <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} maxW="1200px" mx="auto">
+    {/* Image or Logo */}
+    <Box textAlign="center">
+      <Image
+        src="https://example.com/logo.png"
+        alt="WS-Academy Logo"
+        maxW="100%"
+        borderRadius="md"
+        mx="auto"
+      />
+    </Box>
+
+    {/* About Us Text */}
+    <Box textAlign={{ base: 'center', md: 'left' }}>
+      <Text fontSize="lg" color={color} mb={4}>
+        WS-Academy — это образовательная платформа, предоставляющая курсы и тренировки для подготовки к Чемпионатам WorldSkills.
+        Мы работаем с экспертами в разных областях, чтобы наши студенты могли не только участвовать в чемпионатах, но и совершенствовать свои навыки
+        для профессионального роста.
+      </Text>
+      <Text fontSize="lg" color={color}>
+        Наша миссия — помочь каждому студенту добиться успеха, используя передовые образовательные технологии и методики. Присоединяйтесь к нам,
+        чтобы стать лучшими в своей области.
+      </Text>
+    </Box>
+  </SimpleGrid>
+</Box>
+
+      </Box>
       <Box>
         <CourseList />
       </Box>
@@ -138,7 +171,9 @@ const MainPage: React.FC = () => {
           </Button>
         </Box>
       </Box>
-
+        <Box>
+          <StudentGrades/>
+        </Box>
       <Footer />
     </Box>
   );

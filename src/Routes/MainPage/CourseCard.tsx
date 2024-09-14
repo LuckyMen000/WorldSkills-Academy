@@ -1,68 +1,40 @@
 import React from 'react';
-import { Box, Heading, Text, Stack, Badge, SimpleGrid, Button, Center, HStack } from '@chakra-ui/react';
+import { Box, Heading, Text, Stack, SimpleGrid, Button, Center } from '@chakra-ui/react';
 
 const courses = [
   {
     title: 'Сетевые технологии',
     description: 'Учим с нуля сетевых инженеров и DevOPS специалистов',
-    duration: '2 месяца',
-    level: 'Новички',
     badgeColor: 'blue',
   },
   {
     title: 'Python',
     description: 'Стань разработчиком на одном из самых популярных языков программирования',
-    duration: '4 месяца',
-    level: 'Новички',
     badgeColor: 'green',
   },
   {
     title: 'DevOps',
     description: 'Научитесь использовать инструменты и методы DevOps',
-    duration: '4 месяца',
-    level: 'Новички',
     badgeColor: 'purple',
   },
   {
     title: 'Java',
     description: 'Освойте backend-разработку на Java, фреймворки Spring и Maven, работу с БД и API',
-    duration: '4 месяца',
-    level: 'Новички',
     badgeColor: 'orange',
   },
   {
     title: 'Linux',
     description: 'Пополните скиллсет умением работать с операционными системами Linux',
-    duration: '2 месяца',
-    level: 'Новички',
     badgeColor: 'teal',
   },
   {
     title: 'Кибербезопасность',
     description: 'Изучи хакерский майндсет и научись защищать свою инфраструктуру',
-    duration: '4 месяца',
-    level: 'Новички',
     badgeColor: 'cyan',
   },
   {
     title: 'Frontend',
     description: 'Изучите основы HTML, CSS и JavaScript для создания веб-сайтов',
-    duration: '4 месяца',
-    level: 'Новички',
-    badgeColor: 'pink',
-  },
-  {
-    title: 'Frontend',
-    description: 'Изучите основы HTML, CSS и JavaScript для создания веб-сайтов',
-    duration: '4 месяца',
-    level: 'Новички',
-    badgeColor: 'pink',
-  },
-  {
-    title: 'Frontend',
-    description: 'Изучите основы HTML, CSS и JavaScript для создания веб-сайтов',
-    duration: '4 месяца',
-    level: 'Новички',
     badgeColor: 'pink',
   },
 ];
@@ -80,31 +52,29 @@ const CourseList: React.FC = () => {
         {courses.map((course, index) => (
           <Box
             key={index}
-            p={8}
+            p={10}
             borderWidth="2px"
             borderRadius="25px"
             bgGradient="linear(to-br, white, purple.50)"
-            boxShadow="lg"
-            transition="transform 0.3s, box-shadow 0.3s"
+            boxShadow="2xl"
+            transition="transform 0.4s, box-shadow 0.4s"
             _hover={{
-              transform: 'scale(1.08)',
-              boxShadow: '2xl',
-              bgGradient: 'linear(to-br, white, purple.100)',
+              transform: 'scale(1.12)',
+              boxShadow: '3xl',
+              bgGradient: 'linear(to-br, white, purple.200)',
             }}
+            _active={{
+              transform: 'scale(1.05)',
+              boxShadow: 'lg',
+              bgGradient: 'linear(to-br, white, purple.300)',
+            }}
+            _focus={{ outline: 'none', boxShadow: 'outline' }}
           >
-            <Stack spacing={5}>
-              <HStack spacing={3}>
-                <Badge colorScheme={course.badgeColor} borderRadius="full" px={4} py={2} fontSize="0.9em">
-                  {course.level}
-                </Badge>
-                <Text fontSize="sm" color="gray.500" fontWeight="semibold">
-                  {course.duration}
-                </Text>
-              </HStack>
-              <Heading size="md" color="purple.800">
+            <Stack spacing={6}>
+              <Heading size="lg" color="purple.800">
                 {course.title}
               </Heading>
-              <Text color="gray.700" noOfLines={3}>
+              <Text color="gray.700" fontSize="md" noOfLines={4}>
                 {course.description}
               </Text>
             </Stack>

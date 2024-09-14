@@ -17,6 +17,7 @@ const Footer = () => {
         <SimpleGrid columns={{ base: 1, md: 4 }} spacing={10} mb={6} w="full">
           <Stack spacing={2}>
             <Text fontSize="lg" fontWeight="bold">Направления</Text>
+            <hr></hr>
             <Link>Все направления</Link>
             <Link>Программирование</Link>
             <Link>Сети</Link>
@@ -26,6 +27,7 @@ const Footer = () => {
 
           <Stack spacing={2}>
             <Text fontSize="lg" fontWeight="bold">Сотрудничество</Text>
+            <hr></hr>
             <Link>Контакты</Link>
             <Link>Корпоративное обучение</Link>
             <Link>Карьера</Link>
@@ -35,15 +37,16 @@ const Footer = () => {
 
           <Stack spacing={2}>
             <Text fontSize="lg" fontWeight="bold">Проекты</Text>
+            <hr></hr>
             <Link>Академия IT образования</Link>
             <Link>Профориентация на базе AI</Link>
             <Link>Курс в подарок</Link>
             <Link>Проверка сертификатов</Link>
-            <Link>Мобильные приложения</Link>
           </Stack>
 
           <Stack spacing={2}>
             <Text fontSize="lg" fontWeight="bold">Информация</Text>
+            <hr></hr>
             <Link>Сведения об организации</Link>
             <Link>Политика конфиденциальности</Link>
             <Link>Оплата</Link>
@@ -54,10 +57,10 @@ const Footer = () => {
         {/* Contact Info */}
         <Flex direction="column" align={{ base: 'center', md: 'start' }}>
           <Text fontSize="md">
-            8 (800) 511 49-74 — Контактный центр
+            8 (747) 722 12 37 — Контактный центр
           </Text>
           <Text fontSize="md">
-            8 (495) 118 29-59 — Служба заботы о студентах
+            8 (708) 311 34-77 — Служба заботы о студентах
           </Text>
           <Text mt={2} fontSize="sm">г. Алмаьы, пр-т Сейфуллина, д. 449А, стр. 3</Text>
           <Text fontSize="sm" mb={4}>ИНН 7721855710 | ОГРН 5147746475289</Text>

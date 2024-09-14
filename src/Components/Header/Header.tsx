@@ -34,17 +34,6 @@ const Header: React.FC = () => {
           </Link>
           <Link 
             as={RouterLink} 
-            to="/about" 
-            fontSize="lg" 
-            fontWeight="medium" 
-            color={color} 
-            _hover={{ color: hoverColor }} 
-            transition="0.3s"
-          >
-            О нас
-          </Link>
-          <Link 
-            as={RouterLink} 
             to="/events" 
             fontSize="lg" 
             fontWeight="medium" 
