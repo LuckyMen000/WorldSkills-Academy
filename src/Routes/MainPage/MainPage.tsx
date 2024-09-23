@@ -3,6 +3,9 @@ import { Box, Heading, Text, Stack, SimpleGrid, Flex, Button, useColorModeValue,
 import titleimg from '../../Assets/images/coursestart.gif';
 import Header from '../../Components/Header/Header';
 import CourseList from './CourseCard';
+import Englishimg from '../../Assets/images/2.jpg';
+import Carierimg from '../../Assets/images/1.jpg';
+import ProAiImg from '../../Assets/images/3.jpg';
 import StudentGrades from './StudentGrades';
 import Footer from '../../Components/Footer/Footer';
 
@@ -98,30 +101,45 @@ const MainPage: React.FC = () => {
         <CourseList />
       </Box>
 
-      {/* Блок "Бонусы для студентов" */}
+                  {/* Блок "Бонусы для студентов" */}
       <Box py={10} bg={useColorModeValue('white', 'gray.800')} textAlign="center">
         <Heading as="h3" size="xl" mb={8} color={color}>
           Бонусы для студентов
         </Heading>
         
-        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} maxW="1000px" mx="auto">
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} maxW="1200px" mx="auto">
           {/* Первая карточка */}
           <Box
             p={6}
             bg={useColorModeValue('purple.50', 'gray.700')}
-            borderRadius="md"
-            boxShadow="lg"
-            _hover={{ boxShadow: '2xl', transform: 'scale(1.05)' }}
-            transition="0.3s ease"
+            borderRadius="lg"
+            boxShadow="xl"
+            transition="transform 0.3s ease"
+            _hover={{ transform: 'scale(1.05)', boxShadow: '2xl' }}
           >
-            <Heading as="h4" size="md" mb={4} color="purple.800">
+            <Image 
+              src={Englishimg} 
+              alt="АНГЛИЙСКИЙ ДЛЯ IT" 
+              borderRadius="lg"
+              objectFit="cover"
+              maxH="180px"
+              w="100%"
+              mb={4} 
+              transition="0.3s ease"
+              _hover={{ transform: 'scale(1.1)' }}
+            />
+            <Heading as="h4" size="md" mb={4} color="purple.700">
               АНГЛИЙСКИЙ ДЛЯ IT
             </Heading>
             <Text color={color}>
-              Для наших студентов дарим мини-курс по ключевым английским словам в IT, который сделали совместно с нашими друзьями из Advance.
-              Учимся и работаем с зарубежными коллегами легко.
+              Мини-курс с ключевыми фразами для успешного взаимодействия с зарубежными коллегами.
             </Text>
-            <Button mt={4} colorScheme="purple" variant="outline">
+            <Button 
+              mt={4} 
+              colorScheme="purple" 
+              bgGradient="linear(to-r, purple.500, blue.500)"
+              _hover={{ bgGradient: 'linear(to-r, purple.600, blue.600)' }}
+            >
               Подробнее
             </Button>
           </Box>
@@ -130,46 +148,74 @@ const MainPage: React.FC = () => {
           <Box
             p={6}
             bg={useColorModeValue('purple.50', 'gray.700')}
-            borderRadius="md"
-            boxShadow="lg"
-            _hover={{ boxShadow: '2xl', transform: 'scale(1.05)' }}
-            transition="0.3s ease"
+            borderRadius="lg"
+            boxShadow="xl"
+            transition="transform 0.3s ease"
+            _hover={{ transform: 'scale(1.05)', boxShadow: '2xl' }}
           >
-            <Heading as="h4" size="md" mb={4} color="purple.800">
+            <Image 
+              src={Carierimg} 
+              alt="КАРЬЕРНЫЙ ИНТЕНСИВ" 
+              borderRadius="lg"
+              objectFit="cover"
+              maxH="180px"
+              w="100%"
+              mb={4} 
+              transition="0.3s ease"
+              _hover={{ transform: 'scale(1.1)' }}
+            />
+            <Heading as="h4" size="md" mb={4} color="purple.700">
               КАРЬЕРНЫЙ ИНТЕНСИВ
             </Heading>
             <Text color={color}>
-              Всем студентам мы предоставляем бесплатный интенсив по карьерному росту, разработанный совместно с экспертами из центра развития карьеры «ЭЙЧ».
+              Бесплатный интенсив по карьерному росту для уверенного старта в профессии.
             </Text>
-            <Button mt={4} colorScheme="purple" variant="outline">
+            <Button 
+              mt={4} 
+              colorScheme="purple" 
+              bgGradient="linear(to-r, purple.500, blue.500)"
+              _hover={{ bgGradient: 'linear(to-r, purple.600, blue.600)' }}
+            >
+              Подробнее
+            </Button>
+          </Box>
+
+          {/* Третья карточка */}
+          <Box
+            p={6}
+            bg={useColorModeValue('purple.50', 'gray.700')}
+            borderRadius="lg"
+            boxShadow="xl"
+            transition="transform 0.3s ease"
+            _hover={{ transform: 'scale(1.05)', boxShadow: '2xl' }}
+          >
+            <Image 
+              src={ProAiImg} 
+              alt="ПРОФОРИЕНТАЦИЯ НА БАЗЕ AI" 
+              borderRadius="lg"
+              objectFit="cover"
+              maxH="180px"
+              w="100%"
+              mb={4} 
+              transition="0.3s ease"
+              _hover={{ transform: 'scale(1.1)' }}
+            />
+            <Heading as="h4" size="md" mb={4} color="purple.700">
+              ПРОФОРИЕНТАЦИЯ НА БАЗЕ AI
+            </Heading>
+            <Text color={color}>
+              Тест с AI, который поможет выбрать профессию по вашим интересам и навыкам.
+            </Text>
+            <Button 
+              mt={4} 
+              colorScheme="purple" 
+              bgGradient="linear(to-r, purple.500, blue.500)"
+              _hover={{ bgGradient: 'linear(to-r, purple.600, blue.600)' }}
+            >
               Подробнее
             </Button>
           </Box>
         </SimpleGrid>
-
-        {/* Третья карточка */}
-        <Box
-          mt={10}
-          p={6}
-          bg={useColorModeValue('purple.50', 'gray.700')}
-          borderRadius="md"
-          boxShadow="lg"
-          maxW="800px"
-          mx="auto"
-          _hover={{ boxShadow: '2xl', transform: 'scale(1.05)' }}
-          transition="0.3s ease"
-        >
-          <Heading as="h4" size="md" mb={4} color="purple.800">
-            ПРОФОРИЕНТАЦИЯ НА БАЗЕ AI
-          </Heading>
-          <Text color={color}>
-            Тест, проводимый с использованием искусственного интеллекта. Он анализирует вашу личность, выявляет ваши способности и интересы, 
-            после чего предоставляет персонализированный набор рекомендаций по профессиям, которые могли бы вам подойти.
-          </Text>
-          <Button mt={4} colorScheme="purple" variant="outline">
-            Подробнее
-          </Button>
-        </Box>
       </Box>
         <Box>
           <StudentGrades/>

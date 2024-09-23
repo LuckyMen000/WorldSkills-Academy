@@ -1,14 +1,52 @@
-import React from 'react';
-import { Box, Flex, Link, useColorMode, useColorModeValue, HStack, IconButton } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import {
+  Box,
+  Flex,
+  Link,
+  useColorModeValue,
+  HStack,
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
+  Input,
+  useDisclosure,
+  Center,
+  Text,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  IconButton,
+} from '@chakra-ui/react';
+import { ChevronDownIcon } from '@chakra-ui/icons';
+import Logo from '../../Assets/images/LogoWS.svg';
 import { Link as RouterLink } from 'react-router-dom';
-import { SunIcon, MoonIcon } from '@chakra-ui/icons';
 
 const Header: React.FC = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [language, setLanguage] = useState('RU');
+
   const bg = useColorModeValue('gray.100', 'gray.900');
   const color = useColorModeValue('black', 'white');
   const buttonBg = useColorModeValue('purple.500', 'blue.500');
   const hoverColor = 'darkblue';
+
+  const handleLogin = () => {
+    console.log('Email:', email, 'Password:', password);
+    onClose();
+  };
+
+  const changeLanguage = (lang: string) => {
+    setLanguage(lang);
+    console.log('Selected Language:', lang);
+  };
 
   return (
     <Box bg={bg} px={4} boxShadow="md" position="sticky" top="0" zIndex="1000">
@@ -16,7 +54,7 @@ const Header: React.FC = () => {
         
         <Box fontWeight="bold" fontSize="xl" color={color}>
           <Link as={RouterLink} to="/" _hover={{ textDecoration: 'none', transform: 'scale(1.1)' }} transition="0.3s">
-            MyLogo
+            <img src={Logo} alt="Logo" style={{ width: '120px' }} />
           </Link>
         </Box>
 
@@ -54,19 +92,90 @@ const Header: React.FC = () => {
           >
             Обучение
           </Link>
+          <Link 
+            as={RouterLink} 
+            to="/events" 
+            fontSize="lg" 
+            fontWeight="medium" 
+            color={color} 
+            _hover={{ color: hoverColor }} 
+            transition="0.3s"
+          >
+            База знаний
+          </Link>
         </HStack>
 
-        <IconButton
-          onClick={toggleColorMode}
-          icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-          aria-label="Toggle Theme"
-          bg={buttonBg}
-          color="white"
-          _hover={{ bg: colorMode === 'light' ? 'blue.600' : 'purple.600' }}
-        />
-      </Flex>
-    </Box>
-  );
-};
+        <HStack spacing={4}>
+          <Menu>
+            <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+              {language}
+            </MenuButton>
+            <MenuList>
+              <MenuItem onClick={() => changeLanguage('RU')}>RU</MenuItem>
+              <MenuItem onClick={() => changeLanguage('Қз')}>KZ</MenuItem>
+              <MenuItem onClick={() => changeLanguage('EN')}>EN</MenuItem>
+            </MenuList>
+          </Menu>
 
-export default Header;
+          {/* Login button */}
+          <Button bg={buttonBg} color="white" _hover={{ bg: 'blue.600' }} onClick={onOpen}>
+            Вход
+          </Button>
+        </HStack>
+
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>
+              <Center>
+                Вход в аккаунт WS-Academy
+              </Center>
+            </ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <Input
+                placeholder="Логин или Email"
+                mb={4}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                variant="outline"
+                borderColor={useColorModeValue('gray.300', 'gray.600')}
+                focusBorderColor={useColorModeValue('purple.500', 'blue.500')}
+             
+                />
+                <Input
+                  placeholder="Пароль"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  variant="outline"
+                  borderColor={useColorModeValue('gray.300', 'gray.600')}
+                  focusBorderColor={useColorModeValue('purple.500', 'blue.500')}
+                />
+              </ModalBody>
+  
+              <ModalFooter>
+                <Button colorScheme="blue" mr={3} onClick={handleLogin}>
+                  Войти
+                </Button>
+                <Button variant="ghost" onClick={onClose}>
+                  Отмена
+                </Button>
+              </ModalFooter>
+              
+              <Box p={4} textAlign="center">
+                <Text fontSize="sm">
+                  <Link as={RouterLink} to="/signup" color={buttonBg}>
+                    У меня нет аккаунта?{' '}
+                  </Link>
+                </Text>
+              </Box>
+            </ModalContent>
+          </Modal>
+        </Flex>
+      </Box>
+    );
+  };
+  
+  export default Header;
+  
