@@ -3,6 +3,7 @@ import { Box, Heading, Text, Stack, SimpleGrid, Flex, Button, useColorModeValue,
 import titleimg from '../../Assets/images/coursestart.gif';
 import Header from '../../Components/Header/Header';
 import CourseList from './CourseCard';
+import AboutUsImg from '../../Assets/images/aboutus.gif';
 import Englishimg from '../../Assets/images/2.jpg';
 import Carierimg from '../../Assets/images/1.jpg';
 import ProAiImg from '../../Assets/images/3.jpg';
@@ -69,11 +70,17 @@ const MainPage: React.FC = () => {
   <Heading as="h3" size="xl" mb={6} color={color}>
     О нас
   </Heading>
-  <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} maxW="1200px" mx="auto">
+  <SimpleGrid 
+    columns={{ base: 1, md: 2 }} 
+    spacing={10} 
+    maxW="1200px" 
+    mx="auto" 
+    alignItems="center"  // Центрируем изображение и текст по вертикали
+  >
     {/* Image or Logo */}
     <Box textAlign="center">
       <Image
-        src="https://example.com/logo.png"
+        src={AboutUsImg}
         alt="WS-Academy Logo"
         maxW="100%"
         borderRadius="md"
@@ -82,19 +89,24 @@ const MainPage: React.FC = () => {
     </Box>
 
     {/* About Us Text */}
-    <Box textAlign={{ base: 'center', md: 'left' }}>
+    <Box textAlign={{ base: 'center', md: 'left' }} style={{ backgroundColor:"#fff" }}>
       <Text fontSize="lg" color={color} mb={4}>
-        WS-Academy — это образовательная платформа, предоставляющая курсы и тренировки для подготовки к Чемпионатам WorldSkills.
+        <strong>WS-Academy</strong> — это образовательная платформа, предоставляющая курсы и тренировки для подготовки к Чемпионатам WorldSkills.
         Мы работаем с экспертами в разных областях, чтобы наши студенты могли не только участвовать в чемпионатах, но и совершенствовать свои навыки
         для профессионального роста.
       </Text>
-      <Text fontSize="lg" color={color}>
-        Наша миссия — помочь каждому студенту добиться успеха, используя передовые образовательные технологии и методики. Присоединяйтесь к нам,
+      <Text fontSize="lg" color={color} mb={4}>
+        <strong>Наша миссия:</strong> помочь каждому студенту добиться успеха, используя передовые образовательные технологии и методики. Присоединяйтесь к нам,
         чтобы стать лучшими в своей области.
+      </Text>
+      <Text fontSize="lg" color={color}>
+       <strong>Цель проекта:</strong> создать пространство для качественного обучения и профессионального развития, где каждый сможет найти ресурсы и поддержку 
+      для достижения своих карьерных амбиций и стать востребованным специалистом на мировом уровне.
       </Text>
     </Box>
   </SimpleGrid>
 </Box>
+
 
       </Box>
       <Box>

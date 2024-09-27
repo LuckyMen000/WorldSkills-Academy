@@ -62,7 +62,7 @@ const Footer = () => {
           <Text fontSize="md">
             8 (708) 311 34-77 — Служба заботы о студентах
           </Text>
-          <Text mt={2} fontSize="sm">г. Алмаьы, пр-т Сейфуллина, д. 449А, стр. 3</Text>
+          <Text mt={2} fontSize="sm">г. Алматы, пр-т Сейфуллина, д. 449А, стр. 3</Text>
           <Text fontSize="sm" mb={4}>ИНН 7721855710 | ОГРН 5147746475289</Text>
 
           {/* Social Icons */}
@@ -83,7 +83,6 @@ const Footer = () => {
       {/* Copyright Section */}
       <Flex mt={10} justify="center" textAlign="center" direction="column">
         <Text fontSize="sm">© WS Academy, 2024</Text>
-        <Text fontSize="sm">Лицензия на образовательную деятельность №L035-01298-77/00554994</Text>
       </Flex>
     </Box>
   );

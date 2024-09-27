@@ -94,7 +94,7 @@ const Header: React.FC = () => {
           </Link>
           <Link 
             as={RouterLink} 
-            to="/events" 
+            to="/base" 
             fontSize="lg" 
             fontWeight="medium" 
             color={color} 
