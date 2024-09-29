@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box, Heading, Text, Tabs, TabList, TabPanels, Tab, TabPanel, SimpleGrid, Image, Stack, Flex, Button } from '@chakra-ui/react';
+import { Box, Tabs, TabList, TabPanels, Tab, TabPanel, SimpleGrid, Image, Stack, Text } from '@chakra-ui/react';
 import HeaderBase from '../../Components/HeaderBaseComp/HeaderBase';
 import Banner from '../../Components/BannerBaseComp/Banner';
+import Footer from '../../Components/Footer/Footer';
 
 const articles = [
   {
@@ -31,7 +32,7 @@ const articles = [
 ];
 
 const ArticleCard = ({ title, date, imageUrl }: { title: string; date: string; imageUrl?: string }) => (
-      <Box
+  <Box
     p={5}
     shadow="lg"
     borderWidth="1px"
@@ -59,46 +60,46 @@ const BaseKnowledgePage = () => {
   const videoArticles = articles.filter((article) => article.category === 'Видео');
 
   return (
-    <Box
-      p={6}
-      bgGradient="linear(to-r, purple.500, pink.300)"
-      minHeight="100vh"
-      color="white"
-    >
-        <HeaderBase/>
-      <Heading as="h1" mb={6} textAlign="center" fontSize="3xl" color="white">
-        База Знаний
-      </Heading>
+    <React.Fragment>
+      <HeaderBase />
+      <Box
+        p={6}
+        bgGradient="linear(to-r, purple.500, pink.300)"
+        minHeight="100vh"
+        color="white"
+        pt={{ base: '80px', md: '100px' }} // Отступ для учета фиксированного хедера
+      >
+        <Tabs variant="soft-rounded" colorScheme="purple" isFitted>
+          <TabList mb={6} bg="whiteAlpha.900" borderRadius="lg" p={2}>
+            <Tab _selected={{ color: 'white', bg: 'purple.500' }} fontSize="lg">
+              Лучшее
+            </Tab>
+            <Tab _selected={{ color: 'white', bg: 'purple.500' }} fontSize="lg">
+              Видео
+            </Tab>
+          </TabList>
 
-      <Tabs variant="soft-rounded" colorScheme="purple" isFitted>
-        <TabList mb={6} bg="whiteAlpha.900" borderRadius="lg" p={2}>
-          <Tab _selected={{ color: 'white', bg: 'purple.500' }} fontSize="lg">
-            Лучшее
-          </Tab>
-          <Tab _selected={{ color: 'white', bg: 'purple.500' }} fontSize="lg">
-            Видео
-          </Tab>
-        </TabList>
-
-        <TabPanels>
-          <TabPanel>
-            <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
-              {bestArticles.map((article, index) => (
-                <ArticleCard key={index} {...article} />
-              ))}
-            </SimpleGrid>
-          </TabPanel>
-          <TabPanel>
-            <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
-              {videoArticles.map((article, index) => (
-                <ArticleCard key={index} {...article} />
-              ))}
-            </SimpleGrid>
-          </TabPanel>
-        </TabPanels>
-      </Tabs>
-      <Banner/>
-    </Box>
+          <TabPanels>
+            <TabPanel>
+              <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
+                {bestArticles.map((article, index) => (
+                  <ArticleCard key={index} {...article} />
+                ))}
+              </SimpleGrid>
+            </TabPanel>
+            <TabPanel>
+              <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
+                {videoArticles.map((article, index) => (
+                  <ArticleCard key={index} {...article} />
+                ))}
+              </SimpleGrid>
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
+      </Box>
+      <Banner />
+      <Footer />
+    </React.Fragment>
   );
 };
 

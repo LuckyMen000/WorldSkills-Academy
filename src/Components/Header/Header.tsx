@@ -21,7 +21,6 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  IconButton,
 } from '@chakra-ui/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import Logo from '../../Assets/images/LogoWS.svg';

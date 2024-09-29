@@ -64,39 +64,8 @@ const StudentGrades: React.FC = () => {
         Что говорят наши студенты
       </Heading>
 
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10} maxW="1200px" mx="auto">
-        {testimonials.map((testimonial, index) => (
-          <Box
-            key={index}
-            p={8}
-            bg={cardBg}
-            borderRadius="xl"
-            boxShadow="lg"
-            transition="0.3s ease-in-out"
-            _hover={{
-              boxShadow: shadowHover,
-              transform: 'translateY(-10px)',
-              bgGradient: 'linear(to-r, purple.100, blue.50)',
-            }}
-          >
-            <Stack spacing={5} align="center">
-              <Avatar size="xl" name={testimonial.name} src={testimonial.avatar} />
-              <Heading as="h4" size="md" color="purple.800">
-                {testimonial.name}
-              </Heading>
-              <Text color={color} fontSize="md">
-                Курс: {testimonial.course}
-              </Text>
-              <HStack>
-                <Text color={color} fontSize="md">Оценка:</Text>
-                <Text color="yellow.500" fontSize="lg">{'★'.repeat(testimonial.rating)}</Text>
-              </HStack>
-              <Text color={color} fontSize="sm" textAlign="center" noOfLines={4}>
-                {testimonial.feedback}
-              </Text>
-            </Stack>
-          </Box>
-        ))}
+      <SimpleGrid>
+        <Heading>Скоро...</Heading>
       </SimpleGrid>
     </Box>
   );
