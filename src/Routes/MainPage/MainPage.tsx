@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, Text, Stack, SimpleGrid, Flex, Button, useColorModeValue, Image } from '@chakra-ui/react'; 
+import { Box, Heading, Text, Stack, SimpleGrid, Flex, Button, useColorModeValue, Image, AspectRatio } from '@chakra-ui/react'; 
 import titleimg from '../../Assets/images/coursestart.gif';
 import Header from '../../Components/Header/Header';
 import CourseList from './CourseCard';
@@ -65,55 +65,75 @@ const MainPage: React.FC = () => {
           </Box>
         </Flex>
       </Box>
-      <Box>
+
+      {/* Блок "О нас" перемещен выше */}
       <Box py={10} bg={useColorModeValue('gray.50', 'gray.800')} textAlign="center">
-  <Heading as="h3" size="xl" mb={6} color={color}>
-    О нас
-  </Heading>
-  <SimpleGrid 
-    columns={{ base: 1, md: 2 }} 
-    spacing={10} 
-    maxW="1200px" 
-    mx="auto" 
-    alignItems="center"  // Центрируем изображение и текст по вертикали
-  >
-    {/* Image or Logo */}
-    <Box textAlign="center">
-      <Image
-        src={AboutUsImg}
-        alt="WS-Academy Logo"
-        maxW="100%"
-        borderRadius="md"
-        mx="auto"
-      />
-    </Box>
+        <Heading as="h3" size="xl" mb={6} color={color}>
+          О нас
+        </Heading>
+        <SimpleGrid 
+          columns={{ base: 1, md: 2 }} 
+          spacing={10} 
+          maxW="1200px" 
+          mx="auto" 
+          alignItems="center"  // Центрируем изображение и текст по вертикали
+        >
+          {/* Image or Logo */}
+          <Box textAlign="center">
+            <Image
+              src={AboutUsImg}
+              alt="WS-Academy Logo"
+              maxW="100%"
+              borderRadius="md"
+              mx="auto"
+            />
+          </Box>
 
-    {/* About Us Text */}
-    <Box textAlign={{ base: 'center', md: 'left' }} style={{ backgroundColor:"#fff" }}>
-      <Text fontSize="lg" color={color} mb={4}>
-        <strong>WS-Academy</strong> — это образовательная платформа, предоставляющая курсы и тренировки для подготовки к Чемпионатам WorldSkills.
-        Мы работаем с экспертами в разных областях, чтобы наши студенты могли не только участвовать в чемпионатах, но и совершенствовать свои навыки
-        для профессионального роста.
-      </Text>
-      <Text fontSize="lg" color={color} mb={4}>
-        <strong>Наша миссия:</strong> помочь каждому студенту добиться успеха, используя передовые образовательные технологии и методики. Присоединяйтесь к нам,
-        чтобы стать лучшими в своей области.
-      </Text>
-      <Text fontSize="lg" color={color}>
-       <strong>Цель проекта:</strong> создать пространство для качественного обучения и профессионального развития, где каждый сможет найти ресурсы и поддержку 
-      для достижения своих карьерных амбиций и стать востребованным специалистом на мировом уровне.
-      </Text>
-    </Box>
-  </SimpleGrid>
-</Box>
-
-
+          {/* About Us Text */}
+          <Box textAlign={{ base: 'center', md: 'left' }} style={{ backgroundColor:"#fff" }}>
+            <Text fontSize="lg" color={color} mb={4}>
+              <strong>WS-Academy</strong> — это образовательная платформа, предоставляющая курсы и тренировки для подготовки к Чемпионатам WorldSkills.
+              Мы работаем с экспертами в разных областях, чтобы наши студенты могли не только участвовать в чемпионатах, но и совершенствовать свои навыки
+              для профессионального роста.
+            </Text>
+            <Text fontSize="lg" color={color} mb={4}>
+              <strong>Наша миссия:</strong> помочь каждому студенту добиться успеха, используя передовые образовательные технологии и методики. Присоединяйтесь к нам,
+              чтобы стать лучшими в своей области.
+            </Text>
+            <Text fontSize="lg" color={color}>
+              <strong>Цель проекта:</strong> создать пространство для качественного обучения и профессионального развития, где каждый сможет найти ресурсы и поддержку 
+              для достижения своих карьерных амбиций и стать востребованным специалистом на мировом уровне.
+            </Text>
+          </Box>
+        </SimpleGrid>
       </Box>
+
+      {/* Блок с видео "Что такое WORLDSKILLS?" перемещен ниже */}
+      <Box py={10} bg={useColorModeValue('gray.50', 'gray.800')} textAlign="center">
+        <Heading as="h3" size="xl" mb={6} color={color}>
+          Что такое WORLDSKILLS?
+        </Heading>
+        <Text fontSize="lg" color={color} mb={4} maxW="800px" mx="auto">
+          <strong>WorldSkills</strong> — международное некоммерческое движение, целью которого является повышение престижа рабочих профессий и развитие навыков мастерства. 
+          Для полного понимания предлагаем посмотреть видеоролик ниже. ПРИЯТНОГО ПРОСМОТРА!
+        </Text>
+        
+        {/* Вставка видео через iframe */}
+        <AspectRatio maxW="800px" ratio={16 / 9} mx="auto" mb={8}>
+          <iframe
+            src="https://www.youtube.com/embed/4hfPE-O1IeM"
+            title="Что такое WorldSkills?"
+            allowFullScreen
+          />
+        </AspectRatio>
+      </Box>
+
+      {/* Остальные блоки */}
       <Box>
         <CourseList />
       </Box>
 
-                  {/* Блок "Бонусы для студентов" */}
+      {/* Блок "Бонусы для студентов" */}
       <Box py={10} bg={useColorModeValue('white', 'gray.800')} textAlign="center">
         <Heading as="h3" size="xl" mb={8} color={color}>
           Бонусы для студентов
@@ -203,7 +223,7 @@ const MainPage: React.FC = () => {
           >
             <Image 
               src={ProAiImg} 
-              alt="ПРОФОРИЕНТАЦИЯ НА БАЗЕ AI" 
+              alt="Основы AI и Data Science" 
               borderRadius="lg"
               objectFit="cover"
               maxH="180px"
@@ -213,10 +233,10 @@ const MainPage: React.FC = () => {
               _hover={{ transform: 'scale(1.1)' }}
             />
             <Heading as="h4" size="md" mb={4} color="purple.700">
-              ПРОФОРИЕНТАЦИЯ НА БАЗЕ AI
+              Основы AI и Data Science
             </Heading>
             <Text color={color}>
-              Тест с AI, который поможет выбрать профессию по вашим интересам и навыкам.
+              Курс для начинающих специалистов в области искусственного интеллекта и анализа данных.
             </Text>
             <Button 
               mt={4} 
@@ -229,9 +249,11 @@ const MainPage: React.FC = () => {
           </Box>
         </SimpleGrid>
       </Box>
-        <Box>
-          <StudentGrades/>
-        </Box>
+      
+      {/* Блок "Оценка студентов" */}
+      <StudentGrades />
+
+      {/* Footer */}
       <Footer />
     </Box>
   );
